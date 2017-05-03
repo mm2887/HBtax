@@ -70,3 +70,12 @@ hr.divider {
 .map-container iframe.clicked {
     pointer-events: auto;
 }
+
+#officePage #carouselExampleIndicators {
+    margin-top: 2rem;
+}
+
+#bioPage #mainBio {
+    width: 50%;
+    margin: auto;
+}
