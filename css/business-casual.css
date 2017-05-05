@@ -79,3 +79,13 @@ hr.divider {
     width: 50%;
     margin: auto;
 }
+
+.biopage_teamMemberDescription {
+    text-indent: 1rem;
+    margin: 1rem;
+}
+
+#officePage .col-lg-12 {
+    text-indent: 2rem;
+    font-size: 1em;
+}
