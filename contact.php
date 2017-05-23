@@ -1,3 +1,47 @@
+<?php
+	if (isset($_POST["submit"])) {
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+    $phone = $_POST['phone'];
+		$message = $_POST['message'];
+		$human = intval($_POST['human']);
+
+		$from = 'Demo Contact Form';
+		$to = 'michael.mashkevich@gmail.com';
+		$subject = 'Message from Contact Demo ';
+
+		$body = "From: $name\n E-Mail: $email\n Message:\n $message";
+
+		// Check if name has been entered
+		if (!$_POST['name']) {
+			$errName = 'Please enter your name';
+		}
+
+		// Check if email has been entered and is valid
+		if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+			$errEmail = 'Please enter a valid email address';
+		}
+
+		//Check if message has been entered
+		if (!$_POST['message']) {
+			$errMessage = 'Please enter your message';
+		}
+		//Check if simple anti-bot test is correct
+		if ($human !== 5) {
+			$errHuman = 'Your anti-spam is incorrect';
+		}
+
+// If there are no errors, send the email
+if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
+	if (mail ($to, $subject, $body, $from)) {
+		$result='<div class="alert alert-success">Thank You! I will be in touch</div>';
+	} else {
+		$result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later</div>';
+	}
+}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,7 +140,7 @@
             <hr class="divider">
             <h2 class="text-center text-lg text-uppercase my-0">Contact <strong>Form</strong></h2>
             <hr class="divider">
-            <form action="mailto:michael.mashkevich@gmail.com" role="form" method="post" enctype="text/plain" action="contact.php">
+            <form role="form" method="post" enctype="text/plain" action="contact.php">
                 <div class="row">
                     <div class="form-group col-lg-4">
                         <label class="text-heading">Name</label>
