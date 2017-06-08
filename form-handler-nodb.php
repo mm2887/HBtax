@@ -2,7 +2,7 @@
 // Emails form data to you and the person submitting the form
 // This version requires no database.
 // Set your email below
-$myemail = "mm2887@gmail.com"; // Replace with your email, please
+$myemail = "jdrinde@hbfamilytax.net"; // Replace with your email, please
 
 // Receive and sanitize input
 $name = $_POST['name'];
@@ -11,7 +11,7 @@ $phone = $_POST['phone'];
 $message = $_POST['message'];
 
 // set up email
-$msg = "New contact form submission!\nName: " . $name . "\nEmail: " . $email . "\nPhone: " . $phone . "\nEmail: " . $email;
+$msg = "New contact form submission!\nName: " . $name . "\nEmail: " . $email . "\nPhone: " . $phone . "\nEmail: " . $message;
 $msg = wordwrap($msg,70);
 mail($myemail,"New Form Submission",$msg);
 mail($email,"Thank you for your form submission",$msg);

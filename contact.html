@@ -96,29 +96,29 @@
             <hr class="divider">
             <h2 class="text-center text-lg text-uppercase my-0">Contact <strong>Form</strong></h2>
             <hr class="divider">
+
             <form action="/form-handler-nodb.php" method="post" role="form">
                 <div class="row">
                     <div class="form-group col-lg-4">
-                        <label class="text-heading">Name</label>
-                        <input type="text" name="name" class="form-control">
+                        <label>Name</label>
+                        <input type="text" class="form-control" name="name">
                     </div>
                     <div class="form-group col-lg-4">
-                        <label class="text-heading">Email Address</label>
-                        <input type="email" name="email" class="form-control">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" name="email">
                     </div>
                     <div class="form-group col-lg-4">
-                        <label class="text-heading">Phone Number</label>
-                        <input type="tel" name="phone" class="form-control">
+                        <label>Phone Number</label>
+                        <input type="tel" class="form-control" name="phone">
                     </div>
                     <div class="clearfix"></div>
                     <div class="form-group col-lg-12">
-                        <label class="text-heading">Message</label>
-                        <textarea class="form-control" name="message" rows="6"></textarea>
+                        <label>Message</label>
+                        <textarea class="form-control" rows="6" name="message"></textarea>
                     </div>
                     <div class="form-group col-lg-12">
-                        <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
-                    </div>
-                    <div class="form-group col-lg-12">
+                        <input type="hidden" name="save" value="contact">
+                        <button id="submitButton" type="submit" class="btn btn-default">Submit</button>
                     </div>
                 </div>
             </form>

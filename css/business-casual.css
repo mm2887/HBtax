@@ -89,3 +89,7 @@ hr.divider {
     text-indent: 2rem;
     font-size: 1em;
 }
+
+#submitButton {
+  cursor: pointer;
+}
