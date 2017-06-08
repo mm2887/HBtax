@@ -1,10 +1,9 @@
 <?php
-	if (isset($_POST["submit"])) {
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$name = $_POST['name'];
 		$email = $_POST['email'];
     $phone = $_POST['phone'];
 		$message = $_POST['message'];
-		$human = intval($_POST['human']);
 
 		$from = 'Demo Contact Form';
 		$to = 'michael.mashkevich@gmail.com';
@@ -15,6 +14,8 @@
 		// Check if name has been entered
 		if (!$_POST['name']) {
 			$errName = 'Please enter your name';
+		} else {
+			echo "<script type='text/javascript'>alert('name working');</script>";
 		}
 
 		// Check if email has been entered and is valid
@@ -26,13 +27,10 @@
 		if (!$_POST['message']) {
 			$errMessage = 'Please enter your message';
 		}
-		//Check if simple anti-bot test is correct
-		if ($human !== 5) {
-			$errHuman = 'Your anti-spam is incorrect';
-		}
 
 // If there are no errors, send the email
-if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
+if (!$errName && !$errEmail && !$errMessage) {
+	echo "<script type='text/javascript'>alert('I sent the email');</script>";
 	if (mail ($to, $subject, $body, $from)) {
 		$result='<div class="alert alert-success">Thank You! I will be in touch</div>';
 	} else {
@@ -140,15 +138,17 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
             <hr class="divider">
             <h2 class="text-center text-lg text-uppercase my-0">Contact <strong>Form</strong></h2>
             <hr class="divider">
-            <form role="form" method="post" enctype="text/plain" action="contact.php">
+            <form role="form" method="post" enctype="text/plain" action="">
                 <div class="row">
                     <div class="form-group col-lg-4">
                         <label class="text-heading">Name</label>
                         <input type="text" name="name" class="form-control">
+												<?php echo "<p class='text-danger'>$errName</p>";?>
                     </div>
                     <div class="form-group col-lg-4">
                         <label class="text-heading">Email Address</label>
                         <input type="email" name="email" class="form-control">
+												<?php echo "<p class='text-danger'>$errEmail</p>";?>
                     </div>
                     <div class="form-group col-lg-4">
                         <label class="text-heading">Phone Number</label>
@@ -158,9 +158,10 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
                     <div class="form-group col-lg-12">
                         <label class="text-heading">Message</label>
                         <textarea class="form-control" name="message" rows="6"></textarea>
+												<?php echo "<p class='text-danger'>$errMessage</p>";?>
                     </div>
                     <div class="form-group col-lg-12">
-                        <button type="submit" class="btn btn-secondary">Submit</button>
+                        <input id="submit" name="submit" type="submit" value="submit" class="btn btn-primary">
                     </div>
                     <div class="form-group col-lg-12">
                         <?php echo $result; ?>
@@ -183,7 +184,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
     <script src="vendor/tether/tether.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Zoom when clicked function for Google Map -->
+    <!-- Zoom when clicked function for phGoogle Map -->
     <script>
     $('.map-container')
         .click(function() {
