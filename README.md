@@ -1,10 +1,12 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [Business Casual](http://startbootstrap.com/template-overviews/business-casual/)
+# [Start Bootstrap](http://startbootstrap.com/) - [Business Casual](http://startbootstrap.com/template-overviews/business-casual/) - hbfamilytax.net
 
 [Business Casual](http://startbootstrap.com/template-overviews/business-casual/) is a multipurpose website theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a landing page, about page, blog page, and a contact page along with various custom styles and components.
 
+This theme has been used to setup the site for hbfamilytax.net.
+
 ## Getting Started
 
-To begin using this template, choose one of the following options to get started:
+To begin using a clean version of this template, choose one of the following options to get started:
 * [Download the latest release on Start Bootstrap](http://startbootstrap.com/template-overviews/business-casual/)
 * Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-business-casual.git`
 * Fork the repo
